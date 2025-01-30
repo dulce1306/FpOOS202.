@@ -30,6 +30,7 @@ public class ejercicio5 {
                 break;
             case '/':
                 if (num2 != 0) {
+                    
                     resultado = num1 / num2;
                     System.out.println("Resultado: " + resultado);
                 } else {
