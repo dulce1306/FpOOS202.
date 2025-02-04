@@ -24,4 +24,5 @@ public class ejercicio2 {
         }
         return resultado.toString().trim();
     }
+
 }

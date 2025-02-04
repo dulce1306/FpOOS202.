@@ -9,5 +9,6 @@ public class ejercicio3 {
         System.out.println("La suma de los enteros desde 1 hasta " + x + " es: " + suma);
         sc.close();
     }
+
 }
 

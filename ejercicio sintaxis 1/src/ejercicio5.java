@@ -11,5 +11,6 @@ public class ejercicio5 {
         System.out.println("El peso total del paquete es: " + pesoTotal + " gramos.");
         sc.close();
     }
+
 }
 

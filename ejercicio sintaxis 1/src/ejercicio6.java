@@ -9,4 +9,5 @@ public class ejercicio6 {
         System.out.println("La Frase invertida es: " + fraseInvertida);
         sc.close();
     }
+
 }

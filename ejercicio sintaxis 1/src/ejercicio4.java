@@ -9,4 +9,5 @@ public class ejercicio4 {
         System.out.println(nombreUsuario.toUpperCase() + " tiene " + longitud + " letras.");
         sc.close();
     }
+
 }

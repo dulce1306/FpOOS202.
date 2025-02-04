@@ -14,4 +14,5 @@ public class main {
         System.out.println("La paga correspondiente es: " + paga);
 
     }
+
 }
