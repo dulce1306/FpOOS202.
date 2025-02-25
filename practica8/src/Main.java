@@ -4,14 +4,11 @@ public class Main {
     public static void main(String[] args) {
 
         //Creamos el primer objeto
-        Spartan masterChief = new Spartan();
+        Spartan masterChief = new Spartan("john",100,70,"Rifle de asalto");
 
 
         //Usar sus atributos
-        masterChief.nombre= "John";
-        masterChief.salud=100;
-        masterChief.escudo=70;
-        masterChief.armaPrincipal="Rifle de asalto";
+
 
         //invocamos los metodos
         masterChief.mostrarInfo();
@@ -19,14 +16,20 @@ public class Main {
         masterChief.racargarArma(75);
         masterChief.correr(true);
 
+        //intento de uso de un metodo privado
+        // masterChief.consultaCortana();
+
+
+
+        //usamos get y set para cambiar atributo nombre
+        masterChief.setNombre("Dulce Garcia");
+        masterChief.mostrarInfo();
+        System.out.println(masterChief.getNombre());
 
         //creamos el segundo objeto
-        Spartan ayudante = new Spartan();
+        Spartan ayudante = new Spartan("Marcus",0,0,"Cuchillo");
         //Usar sus atributos
-        ayudante.nombre="Marcus";
-       ayudante.salud=0;
-       ayudante.escudo=0;
-      ayudante.armaPrincipal="cuchillo";
+
 
         //invocamos los metodos
         ayudante.mostrarInfo();
