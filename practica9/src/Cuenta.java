@@ -8,15 +8,12 @@ public class Cuenta {
     private int edad;
     private double saldo;
 
+    // constructor
     public Cuenta(int noCuenta, String titular, int edad, double saldo) {
         this.noCuenta = noCuenta;
         this.titular = titular;
         this.edad = edad;
         this.saldo = saldo;
-    }
-
-    public double consultarSaldo() {
-        return saldo;
     }
 
     public void ingresarEfectivo(double monto) {
@@ -47,5 +44,37 @@ public class Cuenta {
             return false;
 
         }
+    }
+    // zona de gets y sets
+    public int getNoCuenta() {
+        return noCuenta;
+    }
+
+    public void setNoCuenta(int noCuenta) {
+        this.noCuenta = noCuenta;
+    }
+
+    public String getTitular() {
+        return titular;
+    }
+
+    public void setTitular(String titular) {
+        this.titular = titular;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
     }
 }

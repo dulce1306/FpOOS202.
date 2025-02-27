@@ -8,12 +8,11 @@ public class Main {
         // Crear un mapa de cuentas simuladas
         Map<Integer, Cuenta> cuentas = new HashMap<>();
 
-        // Agregar cuentas de ejemplo
+        // Creación de cuentas con el constructor
         cuentas.put(1001, new Cuenta(1001, "Hayde Perez", 25, 5000));
         cuentas.put(1002, new Cuenta(1002, "Dulce Garcia", 30, 7000));
-        cuentas.put(1003, new Cuenta(1002, "Antonio1 Garcia", 40, 10000));
+        cuentas.put(1003, new Cuenta(1003, "Antonio1 Garcia", 40, 10000));
 
-        // Pedir número de cuenta al usuario
         int numeroCuenta = Integer.parseInt(JOptionPane.showInputDialog("Ingrese su número de cuenta:"));
         Cuenta cuenta = cuentas.get(numeroCuenta);
 
@@ -30,17 +29,17 @@ public class Main {
 
                 switch (opcion) {
                     case "1":
-                        JOptionPane.showMessageDialog(null, "Saldo actual: $" + cuenta.consultarSaldo());
+                        JOptionPane.showMessageDialog(null, "Saldo actual: $" + cuenta.getSaldo());
                         break;
                     case "2":
                         double deposito = Double.parseDouble(JOptionPane.showInputDialog("Ingrese monto a depositar:"));
                         cuenta.ingresarEfectivo(deposito);
-                        JOptionPane.showMessageDialog(null, "Depósito exitoso. Nuevo saldo: $" + cuenta.consultarSaldo());
+                        JOptionPane.showMessageDialog(null, "Depósito exitoso. Nuevo saldo: $" + cuenta.getSaldo());
                         break;
                     case "3":
                         double retiro = Double.parseDouble(JOptionPane.showInputDialog("Ingrese monto a retirar:"));
                         if (cuenta.retirarEfectivo(retiro)) {
-                            JOptionPane.showMessageDialog(null, "Retiro exitoso. Nuevo saldo: $" + cuenta.consultarSaldo());
+                            JOptionPane.showMessageDialog(null, "Retiro exitoso. Nuevo saldo: $" + cuenta.getSaldo());
                         }
                         break;
                     case "4":
@@ -50,7 +49,7 @@ public class Main {
                             double monto = Double.parseDouble(JOptionPane.showInputDialog("Ingrese monto a transferir:"));
                             if (cuenta.depositar(destino, monto)) {
                                 JOptionPane.showMessageDialog(null, "Transferencia exitosa a " + cuentaDestinoNum +
-                                        ". Nuevo saldo: $" + cuenta.consultarSaldo());
+                                        ". Nuevo saldo: $" + cuenta.getSaldo());
                             }
                         } else {
                             JOptionPane.showMessageDialog(null, "Cuenta destino no encontrada.");

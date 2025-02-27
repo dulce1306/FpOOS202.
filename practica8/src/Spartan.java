@@ -23,7 +23,7 @@ public class Spartan {
        System.out.println("Arma disponible :"+ armaPrincipal);
        System.out.println("-------------------------------------------------------");
 
-   }//lave mostar info
+   }//llave mostar info
 
     public void atacar(String enemigo){
        System.out.println(nombre+ "ataca a"+enemigo+"con"+ armaPrincipal);
