@@ -2,57 +2,98 @@ import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
+        // Creamos el JFrame del menú, pero no lo mostramos hasta el login exitoso
         JFrame frame = new JFrame("Merks and Spen");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(400, 300);
         frame.setLocationRelativeTo(null);
         frame.setLayout(null);
 
+        // Creamos el array de opciones del menú
         String[] opciones = {
-                "Usuario", "Inventario", "Administrar artículos",
+                "Usuario", "Administrar artículos",
                 "Administrar usuarios", "Solicitar artículos", "Cerrar sesión"
         };
 
+        // Creamos el contenedor de botones para el menú
+        JPanel panelMenu = new JPanel();
+        panelMenu.setLayout(null);
+        panelMenu.setBounds(0, 0, 400, 300); // Necesario para colocar los botones correctamente
         int y = 30;
         for (String opcion : opciones) {
             JButton boton = new JButton(opcion);
             boton.setBounds(100, y, 200, 40);
-            frame.add(boton);
+            panelMenu.add(boton);
             y += 45;
 
             boton.addActionListener(e -> {
                 if (opcion.equals("Usuario")) {
-                    mostrarOpcionesUsuario(frame); // muestra opciones de usuario
+                    // Acción para Usuario (si fuera necesario)
+                } else if (opcion.equals("Administrar artículos")) {
+                    // Acción para Administrar artículos (si fuera necesario)
+                } else if (opcion.equals("Administrar usuarios")) {
+                    frame.setVisible(false);
+                    AdministrarUsuario.mostrarAdministrarUsuario();
+                } else if (opcion.equals("Solicitar artículos")) {
+                    // Acción para Solicitar artículos (si fuera necesario)
                 } else if (opcion.equals("Cerrar sesión")) {
-                    frame.dispose();
+                    frame.dispose(); // Cierra la aplicación
                 } else {
                     JOptionPane.showMessageDialog(frame, "Seleccionaste: " + opcion);
                 }
             });
         }
 
-        frame.setVisible(true);
+        // Añadir el panel de menú al frame
+        frame.add(panelMenu);
+
+        // Primero, mostramos el login
+        if (mostrarLogin(frame)) {
+            panelMenu.setVisible(true); // Mostramos el menú al iniciar sesión con éxito
+        }
     }
-//  metodo para mostrar opciones de usuario (Login o Registro)
 
-    private static void mostrarOpcionesUsuario(JFrame mainFrame) {
-        String[] opciones = {"Iniciar Sesión", "Registrarse", "Cancelar"};
-        int seleccion = JOptionPane.showOptionDialog(
-                mainFrame,
-                "¿Qué deseas hacer?",
-                "Opciones de Usuario",
-                JOptionPane.DEFAULT_OPTION,
-                JOptionPane.QUESTION_MESSAGE,
-                null,
-                opciones,
-                opciones[0]
-        );
+    public static boolean mostrarLogin(JFrame frame) {
+        JTextField txtCorreo = new JTextField();
+        JPasswordField txtContrasena = new JPasswordField();
 
-        if (seleccion == 0) {
-            Usuario.mostrarLogin(mainFrame); // Este apartado abre la ventana de Login
-        } else if (seleccion == 1) {
-            Usuario.mostrarRegistro(); //   Este apartado abre la ventana de Registro
+        Object[] campos = {
+                "Correo:", txtCorreo,
+                "Contraseña:", txtContrasena
+        };
+
+        while (true) {
+            // Opciones personalizadas en el cuadro de diálogo
+            Object[] opciones = {"Login", "Cancelar"};
+            int opcion = JOptionPane.showOptionDialog(
+                    null,
+                    campos,
+                    "Login - Merks and Spen",
+                    JOptionPane.DEFAULT_OPTION,
+                    JOptionPane.PLAIN_MESSAGE,
+                    null,
+                    opciones,
+                    opciones[0]
+            );
+
+            if (opcion == 1 || opcion == JOptionPane.CLOSED_OPTION) {
+                return false; // Si el usuario cancela, cerrar la ventana
+            }
+
+            String correo = txtCorreo.getText().trim();
+            String contrasena = new String(txtContrasena.getPassword());
+
+            // Simulación de usuario válido
+            String usuarioValido = "administrador@gmail.com";
+            String contrasenaValida = "123456";
+
+            if (correo.equals(usuarioValido) && contrasena.equals(contrasenaValida)) {
+                JOptionPane.showMessageDialog(null, "Inicio de sesión exitoso.");
+                frame.setVisible(true); // Mostramos el frame principal
+                return true;
+            } else {
+                JOptionPane.showMessageDialog(null, "Correo o contraseña incorrectos.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
         }
     }
 }
-
