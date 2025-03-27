@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Querétaro</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
+</head>
+<body>
+    <header>
+        <h1>Bienvenido a Querétaro</h1>
+    </header>
+
+    <main>
+        <!-- Login -->
+        <section id="login">
+            <h2>Iniciar Sesión</h2>
+            <form id="loginForm">
+                <input type="email" id="correo" placeholder="Correo" required>
+                <input type="password" id="contraseña" placeholder="Contraseña" required>
+                <button type="submit">Iniciar Sesión</button>
+            </form>
+        </section>
+
+        <!-- Registro -->
+        <section id="registro">
+            <h2>Registrar Usuario</h2>
+            <form id="registroForm">
+                <input type="text" id="nombre" placeholder="Nombre" required>
+                <input type="email" id="correoRegistro" placeholder="Correo" required>
+                <input type="password" id="contraseñaRegistro" placeholder="Contraseña" required>
+                <button type="submit">Registrar</button>
+            </form>
+        </section>
+
+        <!-- Mapa Interactivo -->
+        <section id="mapa">
+            <h2>Mapa de Querétaro</h2>
+            <div id="map" style="height: 400px;"></div>
+        </section>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+</body>
+</html>
