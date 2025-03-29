@@ -12,6 +12,8 @@
  import java.sql.PreparedStatement;
  import java.sql.SQLException;
  import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
  
 // resultset contiene el resultado de una consulta  
 public class UserCRUD {
@@ -72,6 +74,25 @@ catch(SQLException e){
             return null;
         
         }
-    }
+    } // fin de obtener todos
+    public boolean actualizarUsuario( String id,String nom, String corr, String contra){
+      
+        String sqlUpdate = "UPDATE  Usuarios SET nombre=?,correo=?,contraseña=? WHERE id=?";
+        
+        try{
+           PreparedStatement ps = conexion.prepareStatement(sqlUpdate);
+           ps.setString(1,nom);
+           ps.setString(2,corr);
+           ps.setString(3,contra);
+           ps.setString(4,id);
+           return ps.executeUpdate() > 0;
+        }
+ /* el catch es para que si hay algun error el cache el error y te arrogue cual es el problema que es el manejo de la esepciones*/   
+catch(SQLException e){
+    System.out.println("Error al intentar actualizar: "+ e.getMessage());
+    return false;
     
+}
+    
+    }
 }

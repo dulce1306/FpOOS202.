@@ -76,7 +76,7 @@ public class LOGIN extends JFrame {
             
             if (rs.next()) {
                 JOptionPane.showMessageDialog(this, "Inicio de sesión exitoso");
-                // Aquí podrías abrir otra ventana
+                // Aquí se puede abrir otra ventana
             } else {
                 JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos", "Error", JOptionPane.ERROR_MESSAGE);
             }
