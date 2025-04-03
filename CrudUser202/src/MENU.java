@@ -81,11 +81,14 @@ public class MENU extends javax.swing.JFrame {
         jMenu1.add(jMenuItem3);
 
         jMenuItem4.setText("Eliminar Usuario");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem4);
 
         jMenuBar1.add(jMenu1);
-
-        jMenu2.setActionCommand("");
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -124,6 +127,11 @@ public class MENU extends javax.swing.JFrame {
         FE.setVisible(true);
         
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        FormEliminar FEL = new FormEliminar();
+        FEL.setVisible(true);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
      * @param args the command line arguments

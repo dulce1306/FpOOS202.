@@ -94,5 +94,17 @@ catch(SQLException e){
     
 }
     
+    } // fin de actualizar Usuario
+    
+   void EliminarUsuario(Connection conexion, int idUsuarios) {
+        String eliminarSQL = "DELETE FROM Usuarios WHERE id = ?";
+        try (PreparedStatement ps = conexion.prepareStatement(eliminarSQL)) {
+            ps.setInt(1, idUsuarios);
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Usuario eliminado correctamente");
+        } catch (SQLException e) {
+            System.out.println("Error al intentar eliminar: " + e.getMessage());
+        }
     }
+    
 }
